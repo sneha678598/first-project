@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-container">
+  <br>
+  <h1>Disaster Prediction Dashboard</h1>
+  <form action="{{ url_for('generate_predict') }}" method="POST">
+
+    <label for="disaster-type" style="font-size: 20px; font-weight: bold;">Select Disaster Type:</label>
+    <select name="disaster_type" id="disaster-type">
+      <option value="earthquake">Earthquake</option>
+      <option value="flood">Flood</option>
+    </select>
+    <br>
+    <br>
+
+    <label for="data" style="font-size: 20px; font-weight: bold;">Enter Data (e.g., seismic activity, water levels):</label>
+    <input type="text" id="data" name="data" required>
+    <br>
+    <br>
+
+    <label for="location"  style="font-size: 20px; font-weight: bold;">Enter Location:</label>
+    <input type="text" id="location" name="location" required>
+    <br>
+    <br>
+
+    <button type="submit" style="height: 70px; width: 200px; font-size: 24px; padding: 0 20px;">Predict</button>
+
+  </form>
+
+  <div class="prediction-result">
+    {% if prediction %}
+      <h2>Prediction Result:</h2>
+      <p>{{ prediction }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="charts-section">
+    <h2>Disaster Trends</h2>
+    <canvas id="disasterChart" style="height: 400px; width: 100%;"></canvas>
+</div>
+<script>
+  fetch('/api/disaster-data') // Ensure your endpoint returns the expected data
+    .then(response => response.json())
+    .then(data => {
+        const labels = data.map(item => item.type);
+        const counts = data.map(item => item.count);
+        
+        const ctx = document.getElementById('disasterChart').getContext('2d');
+        const disasterChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# of Disasters',
+                    data: counts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching data:', error));
+</script>
+
+<style>
+.dashboard-container {
+  padding: 20px;
+
+  background-color: #e8e5f5; /* Change this to your desired color */
+  border-radius: 10px; /* Optional: Add rounded corners */
+}
+.dashboard-container form {
+  margin-top: 20px;
+}
+</style>
+{% endblock %}
+

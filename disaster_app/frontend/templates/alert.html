@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Disaster Alerts</h2>
+<div id="alert-container"></div> <!-- Alert container for dynamic alerts -->
+<ul>
+    <li>Alert 1</li>
+    <li>Alert 2</li>
+    <li>Alert 3</li>
+</ul>
+<script src="{{ url_for('static', filename='alerts.js') }}"></script> <!-- Include alerts.js -->
+{% endblock %}

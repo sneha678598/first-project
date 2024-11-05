@@ -1,0 +1,144 @@
+/* main.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #34495e;
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+.navbar a {
+    color: #ecf0f1;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    background-color: #2c3e50;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #1abc9c;
+}
+
+/* Footer */
+.footer {
+    background-color: #34495e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Alerts */
+.alert {
+    padding: 20px;
+    background-color: #e74c3c;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.alert.success {background-color: #2ecc71;}
+.alert.info {background-color: #3498db;}
+.alert.warning {background-color: #f1c40f;}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Forms */
+input[type="text"], input[type="password"], input[type="email"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #1abc9c;
+}
+
+/* Misc */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

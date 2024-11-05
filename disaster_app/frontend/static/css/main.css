@@ -1,0 +1,68 @@
+/* main.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color */
+    color: #333; /* Text color */
+}
+
+/* Header Styles */
+header {
+    text-align: center; /* Center the logo */
+    padding: 20px 0; /* Add some padding around the header */
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #007bff; /* Primary color */
+    padding: 10px; /* Padding around the nav */
+}
+
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-around; /* Space items evenly */
+    align-items: center; /* Center items vertically */
+    padding: 0; /* Remove default padding */
+}
+
+nav li {
+    margin: 0 15px; /* Add horizontal spacing between items */
+}
+
+nav a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text for links */
+    padding: 10px 15px; /* Padding for clickable area */
+    display: block; /* Makes the entire area clickable */
+}
+
+/* Content Area */
+.content {
+    padding: 20px; /* Padding for the content area */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center the footer text */
+    padding: 15px 0; /* Padding around the footer */
+    background-color: #333; /* Dark footer background */
+    color: white; /* White text color */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center align items */
+    }
+}

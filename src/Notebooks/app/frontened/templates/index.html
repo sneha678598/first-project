@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Intelligence Disaster Management System{% endblock %}
+
+{% block content %}
+<div class="homepage-content">
+    <h1>Welcome to the Intelligence Disaster Management System</h1>
+    <p>Our system helps in predicting, managing, and mitigating disaster risks through real-time data analysis and alerts.</p>
+
+    <div class="features">
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/icons/weather.png') }}" alt="Weather Icon">
+            <h2>Real-time Weather Monitoring</h2>
+            <p>Track and monitor weather conditions in real-time to stay informed about potential risks.</p>
+        </div>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/icons/alert.png') }}" alt="Alert Icon">
+            <h2>Instant Alerts</h2>
+            <p>Receive instant alerts and notifications about disaster risks in your area.</p>
+        </div>
+        <div class="feature">
+            <img src="{{ url_for('static', filename='images/icons/evacuation.png') }}" alt="Evacuation Icon">
+            <h2>Evacuation Planning</h2>
+            <p>Get guidance and support for evacuation planning during emergencies.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

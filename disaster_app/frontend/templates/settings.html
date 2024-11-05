@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Settings</h2>
+<form method="POST" action="{{ url_for('settings') }}">
+    <!-- Alert Threshold Setting -->
+    <label for="alert_threshold">Alert Threshold:</label>
+    <input type="number" id="alert_threshold" name="alert_threshold" min="1" required
+        value="{{ settings.get('alert_threshold', '') }}">
+    <br><br>
+
+    <!-- Notification Preferences -->
+    <label for="email_notifications">Email Notifications:</label>
+    <select id="email_notifications" name="email_notifications">
+        <option value="on" {% if settings.get('email_notifications') %}selected{% endif %}>Enabled</option>
+        <option value="off" {% if not settings.get('email_notifications') %}selected{% endif %}>Disabled</option>
+    </select>
+    <br><br>
+
+    <!-- User Profile Information -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required value="{{ settings.get('username', '') }}">
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required value="{{ settings.get('email', '') }}">
+    <br><br>
+
+    <!-- Save Button -->
+    <button type="submit">Save Settings</button>
+</form>
+{% endblock %}

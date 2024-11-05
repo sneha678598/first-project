@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Intelligence Disaster Management System{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Dashboard</h1>
+
+    <div class="dashboard-cards">
+        <div class="card">
+            <h2>Weather Overview</h2>
+            <div class="weather-info">
+                <!-- Placeholder for dynamic weather data -->
+                <p>Location: {{ location }}</p>
+                <p>Temperature: {{ temperature }}°C</p>
+                <p>Condition: {{ condition }}</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Alerts Overview</h2>
+            <div class="alerts-info">
+                <!-- Placeholder for dynamic alerts data -->
+                <p>Active Alerts: {{ active_alerts }}</p>
+                <ul>
+                    {% for alert in alerts %}
+                        <li>{{ alert.type }} - {{ alert.message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recent Activities</h2>
+            <div class="activity-log">
+                <!-- Placeholder for recent activities -->
+                <ul>
+                    {% for activity in activities %}
+                        <li>{{ activity.timestamp }}: {{ activity.description }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-charts">
+        <h2>Analytics</h2>
+        <div class="charts">
+            <!-- Placeholder for charts -->
+            <div id="weather-chart"></div>
+            <div id="alerts-chart"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

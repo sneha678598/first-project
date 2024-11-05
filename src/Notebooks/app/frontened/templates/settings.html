@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Settings - Intelligence Disaster Management System{% endblock %}
+
+{% block content %}
+<div class="settings-page">
+    <h1>System Settings</h1>
+
+    <div class="settings-section">
+        <h2>Account Settings</h2>
+        <form method="POST" action="/update-account-settings">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="{{ user.username }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <small>Leave blank to keep current password</small>
+            </div>
+            <button type="submit" class="save-settings-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <div class="settings-section">
+        <h2>Notification Settings</h2>
+        <form method="POST" action="/update-notification-settings">
+            <div class="form-group">
+                <label for="email-notifications">Email Notifications:</label>
+                <input type="checkbox" id="email-notifications" name="email_notifications" {% if user.email_notifications %}checked{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="sms-notifications">SMS Notifications:</label>
+                <input type="checkbox" id="sms-notifications" name="sms_notifications" {% if user.sms_notifications %}checked{% endif %}>
+            </div>
+            <button type="submit" class="save-settings-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <div class="settings-section">
+        <h2>System Preferences</h2>
+        <form method="POST" action="/update-system-preferences">
+            <div class="form-group">
+                <label for="language">Language:</label>
+                <select id="language" name="language">
+                    <option value="en" {% if user.language == 'en' %}selected{% endif %}>English</option>
+                    <option value="es" {% if user.language == 'es' %}selected{% endif %}>Spanish</option>
+                    <!-- Add more language options here -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="theme">Theme:</label>
+                <select id="theme" name="theme">
+                    <option value="light" {% if user.theme == 'light' %}selected{% endif %}>Light</option>
+                    <option value="dark" {% if user.theme == 'dark' %}selected{% endif %}>Dark</option>
+                </select>
+            </div>
+            <button type="submit" class="save-settings-btn">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

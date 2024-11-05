@@ -1,0 +1,76 @@
+/* alerts.css */
+
+/* Basic styling for the alerts section */
+.alert-container {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+    padding: 15px;
+    border-left: 5px solid #d9534f; /* Default alert color */
+    margin-bottom: 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert.warning {
+    border-left-color: #f0ad4e;
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.alert.success {
+    border-left-color: #5cb85c;
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.info {
+    border-left-color: #5bc0de;
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Alert icons */
+.alert .alert-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.alert .alert-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Close button for alerts */
+.alert .close-btn {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    color: #000;
+    opacity: 0.5;
+}
+
+.alert .close-btn:hover {
+    opacity: 1;
+}
+
+/* Alert title */
+.alert .alert-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Alert description */
+.alert .alert-description {
+    margin: 0;
+    font-size: 14px;
+}

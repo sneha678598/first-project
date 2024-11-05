@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}Alerts - Intelligence Disaster Management System{% endblock %}
+
+{% block content %}
+<div class="alerts-page">
+    <h1>Manage Alerts</h1>
+
+    <div class="alerts-section">
+        <h2>Active Alerts</h2>
+        <table class="alerts-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Message</th>
+                    <th>Severity</th>
+                    <th>Timestamp</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alert in active_alerts %}
+                <tr>
+                    <td>{{ alert.type }}</td>
+                    <td>{{ alert.message }}</td>
+                    <td>{{ alert.severity }}</td>
+                    <td>{{ alert.timestamp }}</td>
+                    <td>
+                        <button class="resolve-btn">Resolve</button>
+                        <button class="details-btn">Details</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="alerts-section">
+        <h2>Create New Alert</h2>
+        <form method="POST" action="/create-alert">
+            <div class="form-group">
+                <label for="alert-type">Alert Type:</label>
+                <input type="text" id="alert-type" name="type" required>
+            </div>
+            <div class="form-group">
+                <label for="alert-message">Message:</label>
+                <textarea id="alert-message" name="message" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="alert-severity">Severity:</label>
+                <select id="alert-severity" name="severity" required>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <button type="submit" class="create-alert-btn">Create Alert</button>
+        </form>
+    </div>
+
+    <div class="alerts-section">
+        <h2>Resolved Alerts</h2>
+        <table class="alerts-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Message</th>
+                    <th>Severity</th>
+                    <th>Resolved At</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alert in resolved_alerts %}
+                <tr>
+                    <td>{{ alert.type }}</td>
+                    <td>{{ alert.message }}</td>
+                    <td>{{ alert.severity }}</td>
+                    <td>{{ alert.resolved_at }}</td>
+                    <td>
+                        <button class="details-btn">Details</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
